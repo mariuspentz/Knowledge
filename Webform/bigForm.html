@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subscription</title>
+    <!-- Include jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        /* Your styles go here */
+        body {
+            font-family: var(--e-global-typography-primary-font-family, 'Montserrat'), sans-serif;
+            background-color: var(--e-global-color-e5fbe5b, #f5f5f5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #subscription-form {
+            background-color: var(--e-global-color-e5fbe5b, #ffffff);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            color: var(--e-global-color-primary, #813E9E);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid var(--e-global-color-secondary, #2D3A4A);
+            border-radius: 4px;
+            color: var(--e-global-color-text, #7A7A7A);
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: var(--e-global-color-accent, #020646);
+            color: var(--e-global-color-e5fbe5b, #FFFFFF);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="subscription-form">
+        <h2>Email Subscription</h2>
+        <form>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label>Do you prefer:</label>
+            <label>
+                <input type="radio" name="petPreference" value="cats" required>
+                Cats
+            </label>
+            <label>
+                <input type="radio" name="petPreference" value="dogs" required>
+                Dogs
+            </label>
+            <label>
+                <input type="radio" name="petPreference" value="elephant" required>
+                Elephant
+            </label>
+
+            <input type="submit" value="Subscribe">
+        </form>
+    </div>
+
+    <!-- Your button -->
+    <button type="button" id="giveData">giveData</button>
+
+    <!-- jQuery document ready function -->
+    <script>
+        $(document).ready(function () {
+            // Attach click event to the button
+            $("#giveData").on("click", function () {
+                // Get the values of the input fields and log them to the console
+                var firstNameValue = $("#firstname").val();
+                var lastNameValue = $("#lastname").val();
+                var emailValue = $("#email").val();
+                var genderValue = $("#gender").val();
+                var petPreferenceValue = $("input[name='petPreference']:checked").val();
+
+                console.log("First Name:", firstNameValue);
+                console.log("Last Name:", lastNameValue);
+                console.log("Email Value:", emailValue);
+                console.log("Gender:", genderValue);
+                console.log("Pet Preference:", petPreferenceValue);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

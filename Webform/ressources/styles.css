@@ -1,0 +1,60 @@
+#navBar {
+
+    display: flex;
+}
+.navItem {
+
+}
+body {
+    font-family: var(--e-global-typography-primary-font-family, 'Montserrat'), sans-serif;
+    background-color: var(--e-global-color-e5fbe5b, #ffffff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+#subscription-form {
+    background-color: var(--e-global-color-e5fbe5b, #9b51e0);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    color: var(--e-global-color-primary, #ffffff);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid var(--e-global-color-secondary, #2D3A4A);
+    border-radius: 4px;
+    color: var(--e-global-color-text, #FFFFFF);
+}
+
+input[type="submit"] {
+    background-color: var(--e-global-color-accent, #ff6900);
+    color: var(--e-global-color-e5fbe5b, #ffffff);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #fcb900;
+}
