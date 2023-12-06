@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subscription</title>
+    <!-- Include jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        /* Your styles go here */
+        body {
+            font-family: var(--e-global-typography-primary-font-family, 'Montserrat'), sans-serif;
+            background-color: var(--e-global-color-e5fbe5b, #f5f5f5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        #subscription-form,
+        #preview-container {
+            background-color: var(--e-global-color-e5fbe5b, #ffffff);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        #subscription-form {
+            margin-right: 20px;
+        }
+
+        h2 {
+            color: var(--e-global-color-primary, #813E9E);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: calc(100% - 20px);
+            /* Adjusted width to account for padding */
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid var(--e-global-color-secondary, #2D3A4A);
+            border-radius: 4px;
+            color: var(--e-global-color-text, #7A7A7A);
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: var(--e-global-color-accent, #020646);
+            color: var(--e-global-color-e5fbe5b, #FFFFFF);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005a9e;
+        }
+
+        #preview-container div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="subscription-form">
+            <h2>Email Subscription</h2>
+            <form>
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label>Do you prefer:</label>
+                <label>
+                    <input type="radio" name="petPreference" value="cats" required>
+                    Cats
+                </label>
+                <label>
+                    <input type="radio" name="petPreference" value="dogs" required>
+                    Dogs
+                </label>
+                <label>
+                    <input type="radio" name="petPreference" value="elephant" required>
+                    Elephant
+                </label>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+
+        <div id="preview-container">
+            <div><strong>First Name:</strong> <span id="preview-firstname"></span></div>
+            <div><strong>Last Name:</strong> <span id="preview-lastname"></span></div>
+            <div><strong>Email:</strong> <span id="preview-email"></span></div>
+            <div><strong>Gender:</strong> <span id="preview-gender"></span></div>
+            <div><strong>Pet Preference:</strong> <span id="preview-pet-preference"></span></div>
+        </div>
+
+        <!-- Your button -->
+        <!-- Removed the "giveData" button from here -->
+
+    </div>
+
+    <!-- jQuery document ready function -->
+    <script>
+        $(document).ready(function () {
+            // Listen for input changes on the left side and update the preview container
+            $("#subscription-form input, #subscription-form select").on("input change", function () {
+                // Get the values of the input fields and update the preview container
+                var firstNameValue = $("#firstname").val();
+                var lastNameValue = $("#lastname").val();
+                var emailValue = $("#email").val();
+                var genderValue = $("#gender").val();
+                var petPreferenceValue = $("input[name='petPreference']:checked").val();
+
+                // Update the preview container
+                $("#preview-firstname").text(firstNameValue);
+                $("#preview-lastname").text(lastNameValue);
+                $("#preview-email").text(emailValue);
+                $("#preview-gender").text(genderValue);
+                $("#preview-pet-preference").text(petPreferenceValue);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
